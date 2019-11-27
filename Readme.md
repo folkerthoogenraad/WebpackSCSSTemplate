@@ -5,6 +5,7 @@ This is a standard (empty) template for using webpack (with live reload) with ba
 ```
 git clone https://github.com/folkerthoogenraad/WebpackSCSSTemplate.git [YourProjectName]
 cd [YourProjectName]
+npm install
 ```
 
 ## Running

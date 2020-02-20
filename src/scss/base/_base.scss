@@ -5,4 +5,52 @@
 html, body{
    padding:0;
    margin:0;
+
+   overflow-x: hidden;
+   -webkit-print-color-adjust: exact !important;
+
+   width:100%;
+   min-height:100%;
+}
+
+.slides, #animate{
+   position:fixed;
+   top:0;
+   left:0;
+   width:100vw;
+   height:100vh;
+
+   z-index:2;
+   
+   overflow:hidden;
+}
+
+.slide{
+   width:100vw;
+   height:50vh;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   color:white;
+
+   transition:transform 0.5s ease-in-out;
+   transition-delay:1s;
+
+   .open &{   
+      &.up{
+         transform:translateY(-50vh);
+      }
+      &.down{
+         transform:translateY(50vh);
+      }
+   }
+
+   &.up{
+      background:green;
+   }
+   &.down{
+      background:blue;
+   }
 }

@@ -82,7 +82,8 @@ const config = {
   },
   plugins: [
     new CopyWebpackPlugin([
-        { from: path.resolve(__dirname, 'src', 'html'), to: path.resolve(__dirname, 'dist')} // , 
+      { from: path.resolve(__dirname, 'src', 'html'), to: path.resolve(__dirname, 'dist')},
+      { from: path.resolve(__dirname, 'src', 'assets'), to: path.resolve(__dirname, 'dist', 'assets')},
       ]),
   ]
 };

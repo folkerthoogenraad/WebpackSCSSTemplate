@@ -34,7 +34,7 @@ const config = {
           {
             loader:'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: "[path][name].[ext]",
               outputPath:"assets/img/",
               publicPath:"assets/img/",
               esModule: false,
@@ -48,7 +48,7 @@ const config = {
           {
             loader:'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: "[path][name].[ext]",
               outputPath:"assets/video/",
               publicPath:"assets/video/",
               esModule: false,
@@ -62,7 +62,7 @@ const config = {
           {
             loader:'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: "[path][name].[ext]",
               outputPath:"assets/fonts/",
               publicPath:"assets/fonts/"
             }

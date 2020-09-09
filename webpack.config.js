@@ -3,6 +3,7 @@ const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const config = {
   entry: './src/index.js',
@@ -23,8 +24,11 @@ const config = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
         exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
       },
       {
         test: /\.scss$/,
@@ -83,14 +87,28 @@ const config = {
             attrs: ['img:src', 'video:src']
           }
         }
-      },      
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+          },
+        },
+      }, 
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.tsx', '.ts', '.js', '.vue' ],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+    },
     plugins: [new TsconfigPathsPlugin({})]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, 'src', 'html'), to: path.resolve(__dirname, 'dist')},
       { from: path.resolve(__dirname, 'src', 'assets'), to: path.resolve(__dirname, 'dist', 'assets')},

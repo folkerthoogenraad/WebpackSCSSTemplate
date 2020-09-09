@@ -26,5 +26,11 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.5",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12"
   }
 }

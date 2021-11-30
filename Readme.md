@@ -1,6 +1,9 @@
 # Webpack SCSS Template
 This is a standard (empty) template for using webpack (with live reload) with babel-loader and SASS loader.
 
+## Prerequisites
+ - Node version 16
+
 ## Installing
 ```
 git clone https://github.com/folkerthoogenraad/WebpackSCSSTemplate.git [YourProjectName]

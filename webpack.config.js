@@ -38,11 +38,11 @@ const config = {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
         use: [
           {
-            loader:'file-loader',
+            loader: 'file-loader',
             options: {
               name: "[path][name].[ext]",
-              outputPath:"assets/img/",
-              publicPath:"assets/img/",
+              outputPath: "assets/img/",
+              publicPath: "assets/img/",
               esModule: false,
             }
           }
@@ -52,11 +52,11 @@ const config = {
         test: /\.(mp4|webm)$/i,
         use: [
           {
-            loader:'file-loader',
+            loader: 'file-loader',
             options: {
               name: "[path][name].[ext]",
-              outputPath:"assets/video/",
-              publicPath:"assets/video/",
+              outputPath: "assets/video/",
+              publicPath: "assets/video/",
               esModule: false,
             }
           }
@@ -66,11 +66,11 @@ const config = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
-            loader:'file-loader',
+            loader: 'file-loader',
             options: {
               name: "[path][name].[ext]",
-              outputPath:"assets/fonts/",
-              publicPath:"assets/fonts/"
+              outputPath: "assets/fonts/",
+              publicPath: "assets/fonts/"
             }
           }
         ],
@@ -83,18 +83,20 @@ const config = {
             attrs: ['img:src', 'video:src']
           }
         }
-      },      
+      },
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
     plugins: [new TsconfigPathsPlugin({})]
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: path.resolve(__dirname, 'src', 'html'), to: path.resolve(__dirname, 'dist')},
-      { from: path.resolve(__dirname, 'src', 'assets'), to: path.resolve(__dirname, 'dist', 'assets')},
-      ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'src', 'html'), to: path.resolve(__dirname, 'dist') },
+        { from: path.resolve(__dirname, 'src', 'assets'), to: path.resolve(__dirname, 'dist', 'assets') },
+      ]
+    }),
   ]
 };
 
